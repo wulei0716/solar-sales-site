@@ -178,7 +178,9 @@ function parseQuote(raw) {
   try {
     const parsed = JSON.parse(raw || "[]");
     return parsed.map((item) =>
-      typeof item === "string" ? { id: item, qty: 1 } : item,
+      typeof item === "string"
+        ? { id: item, qty: 1 }
+        : { id: item.id, qty: Number(item.qty) || 1 },
     );
   } catch {
     return [];
@@ -512,6 +514,8 @@ searchInput.addEventListener("input", renderProducts);
 quoteForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const data = new FormData(quoteForm);
+  // NOTE: Task 8 will replace this handler entirely.
+  // quote is now {id,qty}[], so the map below does not work — placeholder output only.
   const selectedProducts = quote
     .map((id) => products.find((product) => product.id === id))
     .filter(Boolean)
