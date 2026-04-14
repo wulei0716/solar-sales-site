@@ -29,7 +29,7 @@ body {
   margin: 0;
   color: var(--ink);
   background: var(--paper);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   letter-spacing: 0;
@@ -279,11 +279,23 @@ body.nav-open .nav-toggle span:nth-child(3) {
   text-transform: uppercase;
 }
 
+.signal-section .eyebrow,
 .catalog-section .eyebrow,
 .service-copy .eyebrow,
 .contact .eyebrow,
 .quote-panel .eyebrow {
   color: var(--accent);
+}
+
+.hero h1,
+.section-heading h2,
+.signal-copy h2,
+.service-copy h2,
+.contact h2,
+.quote-panel h2,
+.solution-layout h3,
+.signal-grid h3 {
+  text-wrap: balance;
 }
 
 .hero h1,
@@ -419,6 +431,7 @@ body.nav-open .nav-toggle span:nth-child(3) {
   font-size: 1.72rem;
   font-weight: 800;
   letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
 }
 
 .hero-proof dd {
@@ -977,9 +990,11 @@ body.nav-open .nav-toggle span:nth-child(3) {
 }
 
 .service-steps strong {
-  font-size: 0.96rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg);
 }
 
 .service-steps span {
