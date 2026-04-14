@@ -57,7 +57,7 @@
 
 .brand-strip p:first-child {
   font-weight: 500;
-  color: var(--fg);
+  color: var(--ink);
 }
 
 .brand-strip p:last-child {
@@ -749,7 +749,7 @@ git commit -m "refactor: quote 数据结构升级为 {id, qty}，支持数量输
   border: 1px solid var(--line);
   border-radius: 7px;
   background: var(--paper);
-  color: var(--fg);
+  color: var(--ink);
   -moz-appearance: textfield;
 }
 
@@ -762,7 +762,7 @@ git commit -m "refactor: quote 数据结构升级为 {id, qty}，支持数量输
   padding: 11px 12px;
   font-size: 0.9rem;
   background: var(--paper);
-  color: var(--fg);
+  color: var(--ink);
   border: 1px solid var(--line);
   border-radius: 9px;
   cursor: pointer;
