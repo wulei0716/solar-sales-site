@@ -1,3 +1,15 @@
+const datasheetUrls = {
+  "deye-hybrid-inverter": "https://deye.com/wp-content/uploads/2025/10/sun-7.6-8k-sg01lp1-eu.pdf",
+  "airo-hybrid-inverter": "https://www.solaxpower.com/uploads/file/solax-x1-hybrid-g4-datasheet-en.pdf",
+  "goodwe-storage-inverter": "https://en.goodwe.com/Ftp/EN/Downloads/Datasheet/GW_ES%20G2_Datasheet-EN.pdf",
+  "deye-storage-battery": "https://deye.com/wp-content/uploads/2025/10/deye-ai-w5.1-b-series_brochure-20250428v1.0.pdf",
+  "airo-storage-battery": "https://www.solaxpower.com/uploads/file/solax-t-bat-sys-hv-s3.6-datasheet-en.pdf",
+  "goodwe-lynx-battery": "https://en.goodwe.com/Ftp/EN/Downloads/Datasheet/GW_Lynx%20Home%20U%20Series%20(LV)_5.4-20_Datasheet-EN.pdf",
+  "longi-module": "https://static.longi.com/2_LR_7_72_HGD_585_620_M_V2_30_30_and_15_V05_EN_c6514bcafc.pdf",
+  "jinko-module": "https://www.jinkosolar.com/uploads/JKM625-650N-78HL4-BDV-F9-EN.pdf",
+  "trina-module": "https://static.trinasolar.com/sites/default/files/Datasheet_Vertex_NEG21C.20_EN_2023_A_web.pdf",
+};
+
 const officialImages = {
   deyeInverter: "https://deye.com/wp-content/uploads/2024/06/sun-7.6-8k-sg01lp1-eu-2-scaled.png",
   solaxInverter: "https://www.solaxpower.com/uploadfile/1/202507/bcf8461737.webp",
@@ -222,8 +234,8 @@ function renderProducts() {
               ${product.tags.map((tag) => `<span>${tag}</span>`).join("")}
             </div>
             ${
-              product.officialUrl
-                ? `<a class="official-link" href="${product.officialUrl}" target="_blank" rel="noopener">${product.sourceLabel}</a>`
+              datasheetUrls[product.id]
+                ? `<a class="datasheet-link" href="${datasheetUrls[product.id]}" target="_blank" rel="noopener">规格书下载 PDF</a>`
                 : ""
             }
             <button class="button button-primary" type="button" data-add-product="${product.id}">
