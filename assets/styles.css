@@ -282,6 +282,7 @@ body.nav-open .nav-toggle span:nth-child(3) {
 .signal-section .eyebrow,
 .catalog-section .eyebrow,
 .service-copy .eyebrow,
+.faq-section .eyebrow,
 .contact .eyebrow,
 .quote-panel .eyebrow {
   color: var(--accent);
@@ -473,6 +474,7 @@ body.nav-open .nav-toggle span:nth-child(3) {
 .catalog-section,
 .solutions,
 .service,
+.faq-section,
 .contact {
   padding: 112px clamp(20px, 5vw, 64px);
 }
@@ -1031,7 +1033,6 @@ body.nav-open .nav-toggle span:nth-child(3) {
 /* ─── FAQ ────────────────────────────────────────────────────────────────── */
 
 .faq-section {
-  padding: 112px clamp(20px, 5vw, 64px);
   background: var(--surface);
   border-top: 1px solid var(--line);
 }
@@ -1060,6 +1061,10 @@ body.nav-open .nav-toggle span:nth-child(3) {
 }
 
 .faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::marker {
   display: none;
 }
 
@@ -1486,6 +1491,7 @@ body.quote-open .quote-panel {
   .catalog-section,
   .solutions,
   .service,
+  .faq-section,
   .contact {
     padding: 72px 20px;
   }
