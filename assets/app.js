@@ -1,3 +1,6 @@
+const FORMSPREE_ID = "XXXXXXXX"; // 上线前替换为 Formspree 表单 ID
+const WHATSAPP_NUMBER = "XXXXXXXX"; // 上线前替换为真实号码，含国家码，如 8613800138000
+
 const datasheetUrls = {
   "deye-hybrid-inverter": "https://deye.com/wp-content/uploads/2025/10/sun-7.6-8k-sg01lp1-eu.pdf",
   "airo-hybrid-inverter": "https://www.solaxpower.com/uploads/file/solax-x1-hybrid-g4-datasheet-en.pdf",
@@ -171,6 +174,17 @@ const products = [
   },
 ];
 
+function parseQuote(raw) {
+  try {
+    const parsed = JSON.parse(raw || "[]");
+    return parsed.map((item) =>
+      typeof item === "string" ? { id: item, qty: 1 } : item,
+    );
+  } catch {
+    return [];
+  }
+}
+
 const grid = document.querySelector("#productGrid");
 const searchInput = document.querySelector("#productSearch");
 const filterButtons = document.querySelectorAll("[data-filter]");
@@ -184,7 +198,7 @@ const hero = document.querySelector(".hero");
 const navToggle = document.querySelector(".nav-toggle");
 
 let activeFilter = "全部";
-let quote = JSON.parse(localStorage.getItem("solarQuote") || "[]");
+let quote = parseQuote(localStorage.getItem("solarQuote"));
 let revealObserver;
 let scrollTicking = false;
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -220,7 +234,7 @@ function renderProducts() {
 
   grid.innerHTML = visibleProducts
     .map((product) => {
-      const isAdded = quote.includes(product.id);
+      const isAdded = quote.some((item) => item.id === product.id);
       return `
         <article class="product-card">
           <div class="product-media">
@@ -268,25 +282,31 @@ function renderProducts() {
 }
 
 function renderQuote() {
-  const selectedProducts = quote.map((id) => products.find((product) => product.id === id)).filter(Boolean);
+  const selectedItems = quote
+    .map((item) => ({ product: products.find((p) => p.id === item.id), qty: item.qty }))
+    .filter(({ product }) => product);
+
   quoteCountNodes.forEach((node) => {
-    node.textContent = selectedProducts.length;
+    node.textContent = selectedItems.length;
   });
 
-  if (!selectedProducts.length) {
+  if (!selectedItems.length) {
     quoteList.innerHTML = `<p class="quote-empty">还没有加入产品。先在目录里选择需要报价的逆变器、电池或组件。</p>`;
     return;
   }
 
-  quoteList.innerHTML = selectedProducts
+  quoteList.innerHTML = selectedItems
     .map(
-      (product) => `
+      ({ product, qty }) => `
         <div class="quote-item">
           <div>
             <strong>${product.title}</strong>
             <span>${product.brand} · ${product.category}</span>
           </div>
-          <button type="button" data-remove-product="${product.id}">移除</button>
+          <div class="quote-item-controls">
+            <input type="number" min="1" value="${qty}" data-qty-for="${product.id}" aria-label="数量">
+            <button type="button" data-remove-product="${product.id}">移除</button>
+          </div>
         </div>
       `,
     )
@@ -436,15 +456,15 @@ document.addEventListener("click", (event) => {
 
   if (addButton) {
     const productId = addButton.dataset.addProduct;
-    if (!quote.includes(productId)) {
-      quote = [...quote, productId];
+    if (!quote.some((item) => item.id === productId)) {
+      quote = [...quote, { id: productId, qty: 1 }];
       saveQuote();
     }
     openQuote();
   }
 
   if (removeButton) {
-    quote = quote.filter((id) => id !== removeButton.dataset.removeProduct);
+    quote = quote.filter((item) => item.id !== removeButton.dataset.removeProduct);
     saveQuote();
   }
 
@@ -475,6 +495,16 @@ filterButtons.forEach((button) => {
     syncFilterButtons();
     renderProducts();
   });
+});
+
+quoteList.addEventListener("change", (e) => {
+  const input = e.target.closest("[data-qty-for]");
+  if (!input) return;
+  const id = input.dataset.qtyFor;
+  const newQty = Math.max(1, parseInt(input.value, 10) || 1);
+  input.value = newQty;
+  quote = quote.map((item) => (item.id === id ? { ...item, qty: newQty } : item));
+  saveQuote();
 });
 
 searchInput.addEventListener("input", renderProducts);
