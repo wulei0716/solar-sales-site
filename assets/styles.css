@@ -442,6 +442,31 @@ body.nav-open .nav-toggle span:nth-child(3) {
   font-weight: 400;
 }
 
+/* ─── Brand Strip ────────────────────────────────────────────────────────── */
+
+.brand-strip {
+  padding: 14px clamp(20px, 5vw, 64px);
+  background: #f5f5f7;
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+
+.brand-strip p {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.brand-strip p:first-child {
+  font-weight: 500;
+  color: var(--fg);
+}
+
+.brand-strip p:last-child {
+  font-weight: 400;
+  color: var(--muted);
+}
+
 /* ─── Sections ───────────────────────────────────────────────────────────── */
 
 .signal-section,
