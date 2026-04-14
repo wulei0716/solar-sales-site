@@ -25,6 +25,7 @@ const officialImages = {
 const products = [
   {
     id: "deye-hybrid-inverter",
+    status: "现货",
     brand: "德业 Deye",
     category: "逆变器",
     model: "SUN-7.6/8K-SG01LP1-EU",
@@ -40,6 +41,7 @@ const products = [
   },
   {
     id: "airo-hybrid-inverter",
+    status: "现货",
     brand: "艾罗 SolaX",
     category: "逆变器",
     aliases: ["爱罗"],
@@ -56,6 +58,7 @@ const products = [
   },
   {
     id: "goodwe-storage-inverter",
+    status: "预订",
     brand: "固德威 GoodWe",
     category: "逆变器",
     model: "ES G2 Series / GW5000-ES-20",
@@ -71,6 +74,7 @@ const products = [
   },
   {
     id: "deye-storage-battery",
+    status: "现货",
     brand: "德业 Deye",
     category: "电池",
     model: "AI-W5.1-B",
@@ -86,6 +90,7 @@ const products = [
   },
   {
     id: "airo-storage-battery",
+    status: "预订",
     brand: "艾罗 SolaX",
     category: "电池",
     aliases: ["爱罗"],
@@ -102,6 +107,7 @@ const products = [
   },
   {
     id: "goodwe-lynx-battery",
+    status: "询价",
     brand: "固德威 GoodWe",
     category: "电池",
     model: "Lynx Home U Series / LX U5.4-20",
@@ -117,6 +123,7 @@ const products = [
   },
   {
     id: "longi-module",
+    status: "现货",
     brand: "隆基 LONGi",
     category: "组件",
     model: "Hi-MO 7 / LR7-72HGD",
@@ -132,6 +139,7 @@ const products = [
   },
   {
     id: "jinko-module",
+    status: "现货",
     brand: "晶科 Jinko",
     category: "组件",
     model: "Tiger Neo 78HC-BDV / JKM625-650N-78HL4-BDV",
@@ -147,6 +155,7 @@ const products = [
   },
   {
     id: "trina-module",
+    status: "询价",
     brand: "天合 Trina",
     category: "组件",
     model: "Vertex N 725W+ / TSM-NEG21C.20",
@@ -217,6 +226,7 @@ function renderProducts() {
           <div class="product-media">
             <img src="${product.image}" alt="${product.imageAlt || `${product.title}官方产品图`}" loading="lazy" />
             <span class="media-label">${product.imageLabel || "官网产品图"}</span>
+            ${product.status ? `<span class="product-status" data-status="${product.status}">${product.status}</span>` : ""}
           </div>
           <div class="product-body">
             <div class="product-meta">
