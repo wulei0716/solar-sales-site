@@ -336,7 +336,7 @@ function observeRevealTargets(scope = document) {
 }
 
 function setupReveal() {
-  document.querySelectorAll(".signal-section, .catalog-section, .solutions, .service, .contact").forEach((section) => {
+  document.querySelectorAll(".signal-section, .catalog-section, .solutions, .service, .faq-section, .contact").forEach((section) => {
     section.setAttribute("data-reveal", "");
   });
 
