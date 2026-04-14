@@ -1139,18 +1139,15 @@ body.nav-open .nav-toggle span:nth-child(3) {
 }
 
 .button-wa {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   align-self: start;
   padding: 0 24px;
-  height: 44px;
   background: #25d366;
   color: #fff;
   font-size: 0.92rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   border-radius: 100px;
+  min-height: 46px;
   text-decoration: none;
   transition: background 160ms ease, transform 120ms ease, opacity 160ms ease;
 }
@@ -1455,8 +1452,7 @@ body.quote-open .quote-panel {
   .section-heading,
   .signal-section,
   .catalog-toolbar,
-  .service,
-  .contact {
+  .service {
     grid-template-columns: 1fr;
   }
 
