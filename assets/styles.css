@@ -1093,17 +1093,71 @@ body.nav-open .nav-toggle span:nth-child(3) {
 /* ─── Contact ─────────────────────────────────────────────────────────────── */
 
 .contact {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) auto;
-  gap: 32px;
-  align-items: center;
   background: var(--paper);
   border-top: 1px solid var(--line);
 }
 
-.contact p {
-  max-width: 720px;
-  margin-top: 16px;
+.contact-intro {
+  max-width: 680px;
+  margin-bottom: 48px;
+}
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.contact-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.contact-card > p {
+  flex: 1;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+.contact-card .button {
+  align-self: start;
+}
+
+.button-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: start;
+  padding: 0 24px;
+  height: 44px;
+  background: #25d366;
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background 160ms ease, transform 120ms ease, opacity 160ms ease;
+}
+
+.button-wa:hover {
+  background: #1db954;
+  transform: scale(1.03);
 }
 
 /* ─── Quote Panel ─────────────────────────────────────────────────────────── */
@@ -1535,8 +1589,8 @@ body.quote-open .quote-panel {
     grid-template-columns: 1fr;
   }
 
-  .contact .button {
-    justify-self: start;
+  .contact-cards {
+    grid-template-columns: 1fr;
   }
 
   .quote-panel {
