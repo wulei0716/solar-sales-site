@@ -219,9 +219,12 @@ function renderProducts() {
             <span class="media-label">${product.imageLabel || "官网产品图"}</span>
           </div>
           <div class="product-body">
-            <span class="product-brand">${product.brand}</span>
-            ${product.model ? `<span class="product-model">${product.model}</span>` : ""}
+            <div class="product-meta">
+              <span class="product-brand">${product.brand}</span>
+              <span class="product-category">${product.category}</span>
+            </div>
             <h3>${product.title}</h3>
+            ${product.model ? `<span class="product-model">${product.model}</span>` : ""}
             <p>${product.summary}</p>
             ${
               product.specs
