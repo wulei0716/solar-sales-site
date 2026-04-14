@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>光能仓 | 太阳能逆变器、电池与组件销售站</title>
+    <meta
+      name="description"
+      content="光能仓供应德业、艾罗 SolaX、固德威逆变器与储能电池，以及隆基、晶科、天合光伏组件和太阳能板，支持项目选型与询盘报价。"
+    />
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <script defer src="./assets/app.js"></script>
+  </head>
+  <body>
+    <header class="site-header" aria-label="主导航">
+      <a class="brand" href="#top" aria-label="光能仓首页">
+        <span class="brand-mark"></span>
+        <span>光能仓</span>
+      </a>
+      <nav class="main-nav" aria-label="页面导航">
+        <a href="#catalog"><span>01</span> 产品</a>
+        <a href="#overview"><span>02</span> 资料</a>
+        <a href="#solutions"><span>03</span> 方案</a>
+        <a href="#service"><span>04</span> 流程</a>
+        <a href="#catalog" data-focus-search><span>05</span> 搜索</a>
+      </nav>
+      <button class="header-quote" type="button" data-open-quote>
+        询盘清单
+        <span data-quote-count>0</span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <img
+          class="hero-image"
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Solar%20panels-5.jpg?width=2200"
+          alt="地面安装的太阳能光伏组件阵列"
+        />
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <p class="eyebrow">太阳能产品独立站</p>
+          <h1 id="hero-title">逆变器、电池、组件，一次配齐。</h1>
+          <p class="hero-copy">
+            德业、艾罗 SolaX、固德威储能设备，搭配隆基、晶科、天合光伏组件，面向户用、工商业和项目批量采购。
+          </p>
+          <div class="hero-actions" aria-label="主要操作">
+            <a class="button button-primary" href="#catalog">浏览产品</a>
+            <button class="button button-ghost" type="button" data-open-quote>发送询盘</button>
+          </div>
+          <div class="hero-explore" aria-label="快捷浏览">
+            <span>Explore</span>
+            <button type="button" data-quick-search="德业">德业</button>
+            <button type="button" data-quick-search="固德威">固德威</button>
+            <button type="button" data-quick-filter="组件">光伏组件</button>
+            <button type="button" data-quick-filter="电池">储能电池</button>
+          </div>
+          <dl class="hero-proof" aria-label="服务能力">
+            <div>
+              <dt>3类</dt>
+              <dd>逆变器 / 电池 / 组件</dd>
+            </div>
+            <div>
+              <dt>6个</dt>
+              <dd>主流光伏品牌</dd>
+            </div>
+            <div>
+              <dt>1站</dt>
+              <dd>选型、报价、交付协同</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="signal-section" id="overview" aria-labelledby="overview-title">
+        <div class="signal-copy">
+          <p class="eyebrow">0.1 Overview</p>
+          <h2 id="overview-title">把产品目录变成可报价的项目清单。</h2>
+          <p>
+            像产品实验室一样组织光伏货源：品牌、品类、官网资料、项目用途和询盘状态放在同一条路径里。
+          </p>
+        </div>
+        <div class="signal-grid" aria-label="站点方法">
+          <article>
+            <span>0.2</span>
+            <h3>Official Data</h3>
+            <p>产品图片、型号和关键参数按品牌官网产品页更新，来源链接可复核。</p>
+          </article>
+          <article>
+            <span>0.3</span>
+            <h3>Project Fit</h3>
+            <p>按户用储能、工商业并网、批量出口三类采购场景组织产品。</p>
+          </article>
+          <article>
+            <span>0.4</span>
+            <h3>Quote Path</h3>
+            <p>客户从筛选、加入询盘到生成邮件草稿，不离开当前页面。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="catalog-section" id="catalog" aria-labelledby="catalog-title">
+        <div class="section-heading">
+          <p class="eyebrow">产品目录</p>
+          <h2 id="catalog-title">按项目快速筛选</h2>
+          <p>
+            选择品类或品牌，把需要的产品加入询盘清单。产品图片和型号已按品牌官网更新，最终报价以项目规格书、认证和库存为准。
+          </p>
+        </div>
+
+        <div class="catalog-toolbar" aria-label="产品筛选">
+          <div class="filter-group" role="group" aria-label="品类筛选">
+            <button class="filter-button is-active" type="button" data-filter="全部">全部</button>
+            <button class="filter-button" type="button" data-filter="逆变器">逆变器</button>
+            <button class="filter-button" type="button" data-filter="电池">电池</button>
+            <button class="filter-button" type="button" data-filter="组件">组件</button>
+          </div>
+          <label class="search-field">
+            <span>搜索品牌或用途</span>
+            <input id="productSearch" type="search" placeholder="例如：德业、储能、工商业" autocomplete="off" />
+          </label>
+        </div>
+
+        <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      </section>
+
+      <section class="solutions" id="solutions" aria-labelledby="solutions-title">
+        <div class="section-heading">
+          <p class="eyebrow">系统方案</p>
+          <h2 id="solutions-title">从单品采购到成套配置</h2>
+        </div>
+        <div class="solution-layout">
+          <article>
+            <span class="solution-index">01</span>
+            <h3>户用储能</h3>
+            <p>混合逆变器搭配堆叠式电池，适合家庭自发自用、备用电和峰谷电价管理。</p>
+          </article>
+          <article>
+            <span class="solution-index">02</span>
+            <h3>工商业并网</h3>
+            <p>三相逆变器与高效组件组合，面向屋顶、园区、充电站和小型电站项目。</p>
+          </article>
+          <article>
+            <span class="solution-index">03</span>
+            <h3>批量出口</h3>
+            <p>支持按柜、按项目清单、按认证区域匹配货源，便于经销商和EPC统一采购。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="service" id="service" aria-labelledby="service-title">
+        <div class="service-media">
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/SolarPoweredEVChargingStation.jpg?width=1200"
+            alt="太阳能车棚与充电站应用场景"
+          />
+        </div>
+        <div class="service-copy">
+          <p class="eyebrow">服务流程</p>
+          <h2 id="service-title">询盘后给到能落地的配置建议</h2>
+          <ol class="service-steps">
+            <li>
+              <strong>确认场景</strong>
+              <span>用电负载、并网要求、安装位置、目标市场和认证要求。</span>
+            </li>
+            <li>
+              <strong>匹配品牌</strong>
+              <span>按预算、交期、兼容性和售后覆盖选择德业、艾罗 SolaX、固德威或组件品牌。</span>
+            </li>
+            <li>
+              <strong>输出报价</strong>
+              <span>整理BOM、备选型号、包装方式、交付周期和付款节点。</span>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div>
+          <p class="eyebrow">开始询盘</p>
+          <h2 id="contact-title">把项目需求发过来</h2>
+          <p>
+            你可以先加入产品清单，再补充项目国家、装机容量、储能需求和期望交期。站点当前为静态版本，表单会生成邮件草稿。
+          </p>
+        </div>
+        <button class="button button-primary" type="button" data-open-quote>打开询盘清单</button>
+      </section>
+    </main>
+
+    <div class="quote-backdrop" data-close-quote></div>
+    <aside class="quote-panel" id="quotePanel" aria-label="询盘清单" aria-hidden="true">
+      <div class="quote-panel-header">
+        <div>
+          <p class="eyebrow">询盘清单</p>
+          <h2>准备报价资料</h2>
+        </div>
+        <button class="icon-button" type="button" data-close-quote aria-label="关闭询盘清单">×</button>
+      </div>
+      <div class="quote-list" id="quoteList"></div>
+      <form class="quote-form" id="quoteForm">
+        <label>
+          姓名或公司
+          <input name="name" type="text" placeholder="例如：上海某某新能源" required />
+        </label>
+        <label>
+          联系方式
+          <input name="contact" type="text" placeholder="邮箱 / 电话 / WhatsApp" required />
+        </label>
+        <label>
+          项目需求
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="项目国家、装机容量、是否需要电池、目标交期等"
+          ></textarea>
+        </label>
+        <button class="button button-primary" type="submit">生成邮件询盘</button>
+        <p class="form-note" id="formNote" role="status"></p>
+      </form>
+    </aside>
+
+    <button class="quote-fab" type="button" data-open-quote aria-label="打开询盘清单">
+      询盘 <span data-quote-count>0</span>
+    </button>
+
+    <footer class="site-footer">
+      <p>© 2026 光能仓。品牌名称归各自权利人所有，本页面为独立销售站示例模板。</p>
+      <p>
+        产品图片与型号来源：
+        <a href="https://deye.com/" target="_blank" rel="noopener">Deye</a>,
+        <a href="https://www.solaxpower.com/" target="_blank" rel="noopener">SolaX</a>,
+        <a href="https://en.goodwe.com/" target="_blank" rel="noopener">GoodWe</a>,
+        <a href="https://www.longi.com/" target="_blank" rel="noopener">LONGi</a>,
+        <a href="https://www.jinkosolar.com/" target="_blank" rel="noopener">JinkoSolar</a>,
+        <a href="https://www.trinasolar.com/" target="_blank" rel="noopener">Trinasolar</a>.
+        场景图片来源：
+        <a href="https://commons.wikimedia.org/wiki/File:Solar_panels-5.jpg" target="_blank" rel="noopener">Solar panels-5</a>,
+        <a href="https://commons.wikimedia.org/wiki/File:SolarPoweredEVChargingStation.jpg" target="_blank" rel="noopener">Solar EV station</a>.
+      </p>
+    </footer>
+  </body>
+</html>
