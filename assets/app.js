@@ -160,12 +160,18 @@ const formNote = document.querySelector("#formNote");
 const quoteCountNodes = document.querySelectorAll("[data-quote-count]");
 const siteHeader = document.querySelector(".site-header");
 const hero = document.querySelector(".hero");
+const navToggle = document.querySelector(".nav-toggle");
 
 let activeFilter = "全部";
 let quote = JSON.parse(localStorage.getItem("solarQuote") || "[]");
 let revealObserver;
 let scrollTicking = false;
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let enableParallax = window.innerWidth >= 768;
+
+window.addEventListener("resize", () => {
+  enableParallax = window.innerWidth >= 768;
+}, { passive: true });
 
 function matchesProduct(product, term) {
   const haystack = [
@@ -346,7 +352,7 @@ function updateScrollMotion() {
   const scrollY = window.scrollY || 0;
   siteHeader.classList.toggle("is-scrolled", scrollY > 12);
 
-  if (!reduceMotion && hero) {
+  if (!reduceMotion && enableParallax && hero) {
     const heroRect = hero.getBoundingClientRect();
     const progress = Math.min(Math.max(-heroRect.top / heroRect.height, 0), 1);
     document.documentElement.style.setProperty("--hero-shift", `${progress * 48}px`);
@@ -370,7 +376,31 @@ function setupScrollMotion() {
   );
 }
 
+function closeNav() {
+  document.body.classList.remove("nav-open");
+  navToggle?.setAttribute("aria-expanded", "false");
+  navToggle?.setAttribute("aria-label", "展开导航菜单");
+}
+
+navToggle?.addEventListener("click", () => {
+  const isOpen = document.body.classList.toggle("nav-open");
+  navToggle.setAttribute("aria-expanded", String(isOpen));
+  navToggle.setAttribute("aria-label", isOpen ? "关闭导航菜单" : "展开导航菜单");
+});
+
+document.querySelector("#mainNav")?.addEventListener("click", (e) => {
+  if (e.target.closest("a")) closeNav();
+});
+
 document.addEventListener("click", (event) => {
+  if (
+    document.body.classList.contains("nav-open") &&
+    !event.target.closest(".nav-toggle") &&
+    !event.target.closest("#mainNav")
+  ) {
+    closeNav();
+  }
+
   const addButton = event.target.closest("[data-add-product]");
   const removeButton = event.target.closest("[data-remove-product]");
   const openButton = event.target.closest("[data-open-quote]");
@@ -452,6 +482,7 @@ quoteForm.addEventListener("submit", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeQuote();
+    closeNav();
   }
 });
 

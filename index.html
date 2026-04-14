@@ -17,13 +17,18 @@
         <span class="brand-mark"></span>
         <span>光能仓</span>
       </a>
-      <nav class="main-nav" aria-label="页面导航">
+      <nav class="main-nav" id="mainNav" aria-label="页面导航">
         <a href="#catalog"><span>01</span> 产品</a>
         <a href="#overview"><span>02</span> 资料</a>
         <a href="#solutions"><span>03</span> 方案</a>
         <a href="#service"><span>04</span> 流程</a>
         <a href="#catalog" data-focus-search><span>05</span> 搜索</a>
       </nav>
+      <button class="nav-toggle" type="button" aria-label="展开导航菜单" aria-expanded="false" aria-controls="mainNav">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
       <button class="header-quote" type="button" data-open-quote>
         询盘清单
         <span data-quote-count>0</span>
@@ -36,6 +41,7 @@
           class="hero-image"
           src="https://commons.wikimedia.org/wiki/Special:FilePath/Solar%20panels-5.jpg?width=2200"
           alt="地面安装的太阳能光伏组件阵列"
+          fetchpriority="high"
         />
         <div class="hero-shade"></div>
         <div class="hero-content">
@@ -153,6 +159,7 @@
           <img
             src="https://commons.wikimedia.org/wiki/Special:FilePath/SolarPoweredEVChargingStation.jpg?width=1200"
             alt="太阳能车棚与充电站应用场景"
+            loading="lazy"
           />
         </div>
         <div class="service-copy">
