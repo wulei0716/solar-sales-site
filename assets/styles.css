@@ -1304,6 +1304,42 @@ body.quote-open .quote-panel {
   font-weight: 300;
 }
 
+.quote-item-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.quote-item-controls input[type="number"] {
+  width: 60px;
+  padding: 5px 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--paper);
+  color: var(--ink);
+  -moz-appearance: textfield;
+}
+
+.quote-item-controls input[type="number"]::-webkit-inner-spin-button,
+.quote-item-controls input[type="number"]::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+.quote-form select {
+  padding: 11px 12px;
+  font-size: 0.9rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  cursor: pointer;
+}
+
 /* ─── FAB ─────────────────────────────────────────────────────────────────── */
 
 .quote-fab {
