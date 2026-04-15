@@ -666,7 +666,8 @@ body.nav-open .nav-toggle span:nth-child(3) {
 
 .search-field input:focus,
 .quote-form input:focus,
-.quote-form textarea:focus {
+.quote-form textarea:focus,
+.quote-form select:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.12);
 }
@@ -1322,7 +1323,6 @@ body.quote-open .quote-panel {
   border-radius: 7px;
   background: var(--paper);
   color: var(--ink);
-  -moz-appearance: textfield;
 }
 
 .quote-item-controls input[type="number"]::-webkit-inner-spin-button,
@@ -1331,6 +1331,8 @@ body.quote-open .quote-panel {
 }
 
 .quote-form select {
+  width: 100%;
+  font: inherit;
   padding: 11px 12px;
   font-size: 0.9rem;
   background: var(--paper);
@@ -1338,6 +1340,7 @@ body.quote-open .quote-panel {
   border: 1px solid var(--line);
   border-radius: 9px;
   cursor: pointer;
+  outline: none;
 }
 
 /* ─── FAB ─────────────────────────────────────────────────────────────────── */
