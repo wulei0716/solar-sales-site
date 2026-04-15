@@ -429,6 +429,13 @@ function closeNav() {
   navToggle?.setAttribute("aria-label", "展开导航菜单");
 }
 
+function initWhatsApp() {
+  const text = encodeURIComponent("您好，我想咨询太阳能产品报价。");
+  document.querySelectorAll("[data-whatsapp]").forEach((el) => {
+    el.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+  });
+}
+
 navToggle?.addEventListener("click", () => {
   const isOpen = document.body.classList.toggle("nav-open");
   navToggle.setAttribute("aria-expanded", String(isOpen));
@@ -557,12 +564,5 @@ setupReveal();
 setupScrollMotion();
 renderProducts();
 renderQuote();
-
-function initWhatsApp() {
-  const text = encodeURIComponent("您好，我想咨询太阳能产品报价。");
-  document.querySelectorAll("[data-whatsapp]").forEach((el) => {
-    el.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
-  });
-}
 
 initWhatsApp();
