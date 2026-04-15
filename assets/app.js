@@ -511,31 +511,39 @@ quoteList.addEventListener("change", (e) => {
 
 searchInput.addEventListener("input", renderProducts);
 
-quoteForm.addEventListener("submit", (event) => {
+quoteForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const data = new FormData(quoteForm);
-  // NOTE: Task 8 will replace this handler entirely.
-  // quote is now {id,qty}[], so the map below does not work — placeholder output only.
-  const selectedProducts = quote
-    .map((id) => products.find((product) => product.id === id))
-    .filter(Boolean)
-    .map((product) => {
-      const officialSource = product.officialUrl ? `（官网：${product.officialUrl}）` : "";
-      return `- ${product.brand} / ${product.title}${officialSource}`;
-    })
-    .join("\n");
-  const body = encodeURIComponent([
-    `姓名或公司：${data.get("name")}`,
-    `联系方式：${data.get("contact")}`,
-    "询盘产品：",
-    selectedProducts || "- 暂未选择产品",
-    "项目需求：",
-    data.get("message") || "请联系我确认配置。",
-  ].join("\n"));
 
-  const subject = encodeURIComponent("太阳能产品询盘");
-  window.location.href = `mailto:sales@your-domain.com?subject=${subject}&body=${body}`;
-  formNote.textContent = "已生成邮件草稿。上线前请把 sales@your-domain.com 替换为你的真实邮箱。";
+  const productLines = quote
+    .map((item) => ({ product: products.find((p) => p.id === item.id), qty: item.qty }))
+    .filter(({ product }) => product)
+    .map(({ product, qty }) => `- ${product.brand} / ${product.title} × ${qty}台`)
+    .join("\n") || "- 暂未选择产品";
+
+  data.set("产品清单", productLines);
+
+  const submitBtn = quoteForm.querySelector("[type=submit]");
+  submitBtn.disabled = true;
+  submitBtn.textContent = "发送中…";
+  formNote.textContent = "";
+
+  try {
+    const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      method: "POST",
+      headers: { Accept: "application/json" },
+      body: data,
+    });
+    if (!res.ok) throw new Error("non-2xx");
+    formNote.textContent = "已发送，我们将在 1 个工作日内回复。";
+    quoteForm.reset();
+  } catch {
+    const waText = encodeURIComponent("您好，我想咨询太阳能产品报价。");
+    formNote.innerHTML = `发送失败，请通过 <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${waText}" target="_blank" rel="noopener">WhatsApp</a> 联系我们。`;
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "提交询盘";
+  }
 });
 
 document.addEventListener("keydown", (event) => {
@@ -549,3 +557,12 @@ setupReveal();
 setupScrollMotion();
 renderProducts();
 renderQuote();
+
+function initWhatsApp() {
+  const text = encodeURIComponent("您好，我想咨询太阳能产品报价。");
+  document.querySelectorAll("[data-whatsapp]").forEach((el) => {
+    el.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+  });
+}
+
+initWhatsApp();
