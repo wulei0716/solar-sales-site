@@ -15,26 +15,28 @@
     <meta name="twitter:title" content="PN Smart Energy｜让每一片屋顶成为能源资产" />
     <meta name="twitter:description" content="开发、持有并运营清洁电站，连接能源制造与智能基础设施。" />
     <meta name="twitter:image" content="https://wulei0716.github.io/solar-sales-site/pn-smart-energy/og.jpg" />
+    <link rel="icon" type="image/png" href="/solar-sales-site/pn-smart-energy/media/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/solar-sales-site/pn-smart-energy/assets/index-DAq3EhEu.js"></script>
-    <link rel="stylesheet" crossorigin href="/solar-sales-site/pn-smart-energy/assets/index-Bd5zYJ4i.css">
+    <script type="module" crossorigin src="/solar-sales-site/pn-smart-energy/assets/index-DMEspMjM.js"></script>
+    <link rel="stylesheet" crossorigin href="/solar-sales-site/pn-smart-energy/assets/index-jKsXKpRN.css">
   </head>
   <body>
     <a class="skip-link" href="#main" data-i18n="skip">跳至正文</a>
 
     <header class="site-header" id="siteHeader">
-      <a class="brand" href="#top" aria-label="PN Smart Energy 首页">
-        <img src="/solar-sales-site/pn-smart-energy/assets/pn-logo-white.png" alt="PN Smart Energy" />
+      <a class="brand" href="#top" aria-label="PN Smart Energy 首页" data-i18n-aria="homeLabel">
+        <img src="/solar-sales-site/pn-smart-energy/media/pn-logo-white.webp" alt="PN Smart Energy" width="160" height="47" />
       </a>
 
-      <nav class="main-nav" id="mainNav" aria-label="主导航">
+      <nav class="main-nav" id="mainNav" aria-label="主导航" data-i18n-aria="navLabel">
         <a href="#portfolio" data-i18n="navPortfolio">电站资产</a>
         <a href="#business" data-i18n="navBusiness">业务矩阵</a>
         <a href="#products" data-i18n="navProducts">产品与能力</a>
         <a href="#investors" data-i18n="navInvestors">投资者</a>
         <a href="#about" data-i18n="navAbout">关于 PN</a>
+        <a class="mobile-contact" href="#contact" data-i18n="contactUs">联系我们</a>
       </nav>
 
       <div class="header-tools">
@@ -48,23 +50,26 @@
 
     <main id="main">
       <section class="hero" id="top" aria-labelledby="heroTitle">
-        <div class="hero-image" role="img" aria-label="PN Smart Energy 工商业屋顶分布式光伏电站"></div>
+        <img class="hero-image" src="/solar-sales-site/pn-smart-energy/media/hangzhou-hongda-aerial.webp" alt="杭州鸿达纺织分布式光伏电站航拍" data-i18n-alt="hongdaAlt" width="1200" height="800" fetchpriority="high" />
         <div class="hero-scrim"></div>
         <div class="energy-axis" aria-hidden="true"><span></span></div>
         <div class="hero-copy">
-          <p class="eyebrow">NASDAQ: PN · GLOBAL IPP</p>
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>NASDAQ: PN <span class="eyebrow-divider">/</span> GLOBAL IPP</p>
           <h1 id="heroTitle" data-i18n-html="heroTitle">让每一片屋顶<br />成为<span>能源资产。</span></h1>
           <p class="hero-lead" data-i18n="heroLead">开发、持有并运营清洁电站，同时延伸关键能源材料与智能能源基础设施。</p>
           <div class="hero-links">
-            <a class="text-link" href="#portfolio"><span data-i18n="viewPortfolio">查看电站组合</span><b aria-hidden="true">↘</b></a>
+            <a class="text-link primary-link" href="#portfolio"><span data-i18n="viewPortfolio">查看电站组合</span><b aria-hidden="true">↗</b></a>
             <a class="text-link muted-link" href="#investors"><span data-i18n="investorRelations">投资者关系</span><b aria-hidden="true">↗</b></a>
           </div>
         </div>
-        <div class="hero-index" aria-label="核心业务定位">
-          <span>01</span>
-          <p>Independent<br />Power Producer</p>
+        <div class="hero-bottom">
+          <div class="hero-summary">
+            <div><strong>10</strong><span data-i18n="heroStations">座并网电站</span></div>
+            <div><strong>14.75 <small>MWp</small></strong><span data-i18n="heroCapacity">自持总装机</span></div>
+            <div><strong>3</strong><span data-i18n="heroProvinces">省运营布局</span></div>
+          </div>
+          <p class="hero-caption"><span class="status-dot" aria-hidden="true"></span><span data-i18n="heroCaption">杭州鸿达纺织分布式光伏项目 · 浙江</span></p>
         </div>
-        <p class="hero-caption" data-i18n="heroCaption">杭州鸿达纺织分布式光伏项目 · 浙江</p>
       </section>
 
       <section class="portfolio-intro" id="portfolio">
@@ -76,7 +81,7 @@
             <p class="acquisition-note" data-i18n="portfolioNote">9 座自主开发自持 · 1 座股权收购</p>
           </div>
         </div>
-        <div class="metric-strip reveal" aria-label="电站组合核心数据">
+        <div class="metric-strip reveal" aria-label="电站组合核心数据" data-i18n-aria="metricsLabel">
           <article><strong>10</strong><span data-i18n="metricStations">座已并网电站</span></article>
           <article><strong>14.75</strong><span data-i18n="metricCapacity">MWp 总装机</span></article>
           <article><strong>1,533.95</strong><span data-i18n="metricGeneration">万 kWh 年度绿电</span></article>
@@ -86,8 +91,8 @@
 
       <section class="featured-project" aria-labelledby="featuredTitle">
         <figure class="featured-image">
-          <img src="/solar-sales-site/pn-smart-energy/assets/projects/hangzhou-hongda-aerial.jpg" alt="杭州鸿达纺织分布式光伏电站航拍" />
-          <figcaption>30°00′N · 120°17′E</figcaption>
+          <img src="/solar-sales-site/pn-smart-energy/media/hangzhou-hongda-aerial.webp" alt="杭州鸿达纺织分布式光伏电站航拍" data-i18n-alt="hongdaAlt" width="1200" height="800" loading="lazy" decoding="async" />
+          <figcaption data-i18n="projectPhoto">PN 电站实景 · 杭州鸿达</figcaption>
         </figure>
         <div class="featured-copy reveal">
           <p class="eyebrow">FEATURED ASSET · ZHEJIANG</p>
@@ -103,17 +108,18 @@
       </section>
 
       <section class="project-browser" aria-labelledby="projectBrowserTitle">
-        <div class="section-kicker section-kicker-light"><span data-i18n="projectPortfolio">项目组合</span><strong id="visibleCount">10 / 10</strong></div>
+        <div class="section-kicker section-kicker-light"><span data-i18n="projectPortfolio">项目组合</span><strong id="visibleCount" role="status" aria-live="polite" aria-atomic="true">10 / 10</strong></div>
         <div class="browser-heading reveal">
           <h2 id="projectBrowserTitle" data-i18n-html="browserTitle">从单体电站，<br />到区域资产集群。</h2>
-          <div class="filter-bar" aria-label="按区域筛选项目">
-            <button type="button" class="is-active" data-filter="all" data-i18n="filterAll">全部</button>
-            <button type="button" data-filter="zhejiang" data-i18n="zhejiang">浙江</button>
-            <button type="button" data-filter="jiangsu" data-i18n="jiangsu">江苏</button>
-            <button type="button" data-filter="anhui" data-i18n="anhui">安徽</button>
+          <div class="filter-bar" role="group" aria-label="按区域筛选项目" data-i18n-aria="filterLabel">
+            <button type="button" class="is-active" data-filter="all" aria-pressed="true"><span data-i18n="filterAll">全部</span><span class="filter-count">10</span></button>
+            <button type="button" data-filter="zhejiang" aria-pressed="false"><span data-i18n="zhejiang">浙江</span><span class="filter-count">7</span></button>
+            <button type="button" data-filter="jiangsu" aria-pressed="false"><span data-i18n="jiangsu">江苏</span><span class="filter-count">2</span></button>
+            <button type="button" data-filter="anhui" aria-pressed="false"><span data-i18n="anhui">安徽</span><span class="filter-count">1</span></button>
           </div>
         </div>
-        <div class="project-grid" id="projectGrid" aria-live="polite"></div>
+        <div class="project-grid" id="projectGrid"></div>
+        <noscript><p class="project-fallback">项目交互需要启用 JavaScript。电站组合包含浙江 7 座、江苏 2 座、安徽 1 座电站，总装机 14.75 MWp。<br />Enable JavaScript to explore all 10 power stations.</p></noscript>
       </section>
 
       <section class="impact" id="impact" aria-labelledby="impactTitle">
@@ -212,7 +218,7 @@
           <h2 id="aboutTitle" data-i18n-html="missionTitle">以清洁能源，<br />惠益人类。</h2>
           <p data-i18n="missionBody">PN Smart Energy Limited（前身为 Skycorp Solar Group Limited）是一家全球独立发电商，专注清洁电站、关键能源材料与智能能源基础设施。</p>
         </div>
-        <div class="milestones reveal" aria-label="公司里程碑">
+        <div class="milestones reveal" aria-label="公司里程碑" data-i18n-aria="milestonesLabel">
           <article><strong>2025.03</strong><span data-i18n="milestoneListing">登陆纳斯达克资本市场</span></article>
           <article><strong>2026.05</strong><span data-i18n="milestoneIpp">完成 100% 收购，转型 IPP</span></article>
           <article><strong>2026.08</strong><span data-i18n="milestonePn">以 PN Smart Energy 开启新阶段</span></article>
@@ -243,7 +249,7 @@
     </main>
 
     <footer class="site-footer">
-      <img src="/solar-sales-site/pn-smart-energy/assets/pn-logo-white.png" alt="PN Smart Energy" />
+      <img src="/solar-sales-site/pn-smart-energy/media/pn-logo-white.webp" alt="PN Smart Energy" width="160" height="47" loading="lazy" decoding="async" />
       <div>
         <p data-i18n="disclaimer">本网站包含前瞻性陈述，实际结果可能存在重大差异。完整风险因素与披露请参阅公司向美国证券交易委员会提交的文件。</p>
         <p>© <span id="currentYear"></span> PN Smart Energy Limited.</p>
@@ -252,7 +258,7 @@
     </footer>
 
     <dialog class="project-dialog" id="projectDialog" aria-labelledby="dialogTitle">
-      <button class="dialog-close" id="dialogClose" type="button" aria-label="关闭项目详情">×</button>
+      <div class="dialog-toolbar"><span data-i18n="projectProfile">电站项目档案</span><button class="dialog-close" id="dialogClose" type="button" aria-label="关闭项目详情" data-i18n-aria="closeDialog" autofocus>×</button></div>
       <div id="dialogContent"></div>
     </dialog>
   </body>
